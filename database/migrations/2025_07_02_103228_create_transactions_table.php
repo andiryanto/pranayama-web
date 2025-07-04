@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-             $table->string('no_transaction')->unique();
+            $table->string('no_transaction')->unique();
 
             // Kolom relasi (belum ada constraint)
             $table->unsignedBigInteger('customer_id');
