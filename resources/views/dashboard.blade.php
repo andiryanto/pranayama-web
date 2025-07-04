@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-md mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-full mx-auto sm:px-6 lg:px-8">
             <div class="bg-white p-6 rounded-md shadow border border-gray-300 flex items-center gap-6">
                 <!-- Avatar -->
                 <img src="{{ Auth::user()->profile_photo_url }}" alt="Avatar" class="w-20 h-20 rounded-full object-cover" />

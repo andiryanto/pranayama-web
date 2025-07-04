@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class Promo extends Model
 {
     //
-    protected $table = 'menu';
+    protected $table = 'promo';
     protected $fillable = [
         'name',
         'description',
-        'price',
-        'category',
-        'image',
+        'start_date',
+        'expiried_date',
+        'promo_image',
     ];
 }

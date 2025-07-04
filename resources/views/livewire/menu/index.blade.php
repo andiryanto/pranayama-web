@@ -12,7 +12,7 @@
             <div class="px-4 py-5 sm:px-6 flex items-center justify-between">
                  <div>
                      <h3 class="text-lg font-medium leading-6 text-gray-900">Menu List</h3>
-                     <p class="mt-1 max-w-2xl text-sm text-gray-500">Here you can find all available menu items.</p>
+                     <p class="mt-1 max-w-2xl text-sm text-gray-500">Di sini Anda dapat menemukan semua item menu yang tersedia.</p>
                  </div>
                  <div>
                      <a href="{{ route('menu.create') }}"
@@ -46,10 +46,10 @@
                                     </span>
                                 </div>
                                 <!-- Detail and delete -->
-                                <div class="flex justify-between items-center">
+                                <div class="flex justify-end pt-2 mt-auto">
                                     <div class="flex space-x-2">
                                        <!-- Button Detail -->
-                                        <a href="{{ route('menu.show', $menu->id) }}" class="inline-flex items-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                        <a href="{{ route('menu.show', $menu->id) }}" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700">
                                             Detail
                                         </a>
                                     </div>
