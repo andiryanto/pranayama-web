@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Transaksi extends Model
 {
     //
-    protected $table = 'transactions';
+    protected $table = 'transaksis';
     protected $fillable = [
         'no_transaction', // required
         'type_transaction', // required
@@ -18,4 +18,9 @@ class Transaction extends Model
         'no_antrian', // required
         'status',
     ];
+    
+    public function items()
+{
+    return $this->hasMany(TransaksiItem::class);
+}
 }

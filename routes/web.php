@@ -29,7 +29,9 @@ Route::middleware([
     Route::get('/promo/create', \App\Livewire\Promo\Create::class)->name('promo.create');
     Route::get('/promo/show/{id}', \App\Livewire\Promo\Show::class)->name('promo.show');
     Route::get('/promo/edit/{id}', \App\Livewire\Promo\Edit::class)->name('promo.edit');
-    
+    // Route livewire for Transaksi
+    Route::get('/transaksi', \App\Livewire\Transaksi\Index::class)->name('transaksi.index');
+    Route::get('/transaksi/show/{id}', \App\Livewire\Transaksi\Show::class)->name('transaksi.show');
 });
 
 
