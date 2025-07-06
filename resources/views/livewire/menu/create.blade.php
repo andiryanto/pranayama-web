@@ -31,10 +31,23 @@
     
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700">Kategori</label>
-                    <input type="text" wire:model="category" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                    <select wire:model="category" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="">Pilih Kategori</option>
+                        <option value="Coffee">Coffee</option>
+                        <option value="Non Coffee">Non Coffee</option>
+                        <option value="Ricebowl">Ricebowl</option>
+                        <option value="Snack">Snack</option>
+                        <option value="Manual Brew">Manual Brew</option>
+                    </select>
                     @error('category') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
-    
+                <div class="form-group">
+                <input type="hidden" name="is_recommended" value="0">
+                <label>
+                <input type="checkbox" wire:model="is_recommended">
+                 Tandai sebagai Recommended
+                 </label>
+                </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700">Gambar</label>
                     <input type="file" wire:model="image" class="mt-1 block w-full" />
