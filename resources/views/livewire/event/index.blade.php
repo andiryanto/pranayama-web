@@ -12,7 +12,7 @@
             <div class="px-4 py-5 sm:px-6 flex items-center justify-between">
                 <div>
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Event List</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Di sini Anda dapat menemukan semua acara mendatang.</p>
+                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Event Pranayama Social Area</p>
                 </div>
                 <div>
                     <a href="{{ route('event.create') }}"

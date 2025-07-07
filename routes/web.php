@@ -32,6 +32,9 @@ Route::middleware([
     // Route livewire for Transaksi
     Route::get('/transaksi', \App\Livewire\Transaksi\Index::class)->name('transaksi.index');
     Route::get('/transaksi/show/{id}', \App\Livewire\Transaksi\Show::class)->name('transaksi.show');
+    // Route livewire for About
+    Route::get('/about', \App\Livewire\About\Index::class)->name('about.index');
+    Route::get('/about/create', \App\Livewire\About\Create::class)->name('about.create');
 });
 
 

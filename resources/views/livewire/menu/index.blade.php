@@ -12,7 +12,7 @@
             <div class="px-4 py-5 sm:px-6 flex items-center justify-between">
                  <div>
                      <h3 class="text-lg font-medium leading-6 text-gray-900">Menu List</h3>
-                     <p class="mt-1 max-w-2xl text-sm text-gray-500">Di sini Anda dapat menemukan semua item menu yang tersedia.</p>
+                     <p class="mt-1 max-w-2xl text-sm text-gray-500">Menu Produk Pranayama Social Area</p>
                  </div>
                  <div>
                      <a href="{{ route('menu.create') }}"

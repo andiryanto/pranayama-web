@@ -14,7 +14,9 @@ class EventController extends Controller
 
         return response()->json([
             'status' => true,
+             'message' => 'Daftar event berhasil diambil.',
             'data' => $events
         ]);
     }
 }
+ 

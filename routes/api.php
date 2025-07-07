@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\AboutController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -27,4 +28,4 @@ Route::get('/events', [EventController::class, 'index']);
 
 Route::post('/payment', [PaymentController::class, 'payment']);
 Route::post('/payment/notification', [PaymentController::class, 'handlerNotification']);
-
+Route::get('/abouts', [AboutController::class, 'index']);

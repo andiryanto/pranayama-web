@@ -30,7 +30,12 @@
 
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700">Kategori</label>
-                    <input type="text" wire:model="category" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                    <select wire:model="category" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="">Pilih Kategori</option>
+                        <option value="Musik">Musik</option>
+                        <option value="Pameran">Pameran</option>
+                        <option value="Workshop">Workshop</option>
+                    </select>
                     @error('category') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
     
@@ -44,9 +49,12 @@
                         <img src="{{ $image->temporaryUrl() }}" class="h-24 mt-2 rounded" alt="Preview">
                     @endif
                 </div>
-
+                <div class="flex justify-end">
+                    <a href="{{ route('event.index') }}" class="mr-3 px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">
+                        Batal
+                    </a>
                 <button type="submit"
-                    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
                     Simpan
                 </button>
             </form>

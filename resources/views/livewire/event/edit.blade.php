@@ -37,10 +37,9 @@
                 <select wire:model.defer="category"
                         class="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500">
                     <option value="" hidden>Pilih kategori</option>
-                    <option value="seminar">Seminar</option>
-                    <option value="workshop">Workshop</option>
-                    <option value="competition">Competition</option>
-                    <option value="social">Social</option>
+                    <option value="Musik">Musik</option>
+                    <option value="Pameran">Pameran</option>
+                    <option value="Workshop">Workshop</option>               
                 </select>
                 @error('category') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
             </div>
