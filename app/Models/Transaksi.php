@@ -22,4 +22,9 @@ class Transaksi extends Model
 {
     return $this->hasMany(TransaksiItem::class);
 }
+
+public function staff()
+    {
+        return $this->belongsTo(User::class, 'staff_id');
+    }
 }

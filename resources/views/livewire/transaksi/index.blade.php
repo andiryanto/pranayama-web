@@ -37,7 +37,7 @@
                                 <p class="text-sm text-gray-600 mb-3">
                                     Total Harga:
                                     <span class="font-semibold text-green-700">
-                                        Rp {{ number_format($transaksi->total_harga, 0, ',', '.') }}
+                                        Rp {{ number_format($transaksi->total_price, 0, ',', '.') }}
                                     </span>
                                 </p>
 

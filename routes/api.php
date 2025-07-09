@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\AboutController;
 use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\PromoController;
 use App\Http\Controllers\Api\TransaksiController;
+use App\Http\Controllers\Api\QueueController;
 
 
 Route::get('/user', function (Request $request) {
@@ -37,3 +38,5 @@ Route::post('/feedback', [FeedbackController::class, 'store']);
 Route::get('/feedback', [FeedbackController::class, 'index']);
 Route::get('/promo', [PromoController::class, 'index']);
 Route::post('/checkout', [TransaksiController::class, 'checkout']);
+Route::get('/transactions/history/{customer_id}', [TransaksiController::class, 'history']);
+Route::get('/antrian', [QueueController::class, 'current']);
