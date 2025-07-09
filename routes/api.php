@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\AboutController;
 use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\PromoController;
+use App\Http\Controllers\Api\TransaksiController;
 
 
 Route::get('/user', function (Request $request) {
@@ -35,3 +36,4 @@ Route::get('/abouts', [AboutController::class, 'index']);
 Route::post('/feedback', [FeedbackController::class, 'store']);
 Route::get('/feedback', [FeedbackController::class, 'index']);
 Route::get('/promo', [PromoController::class, 'index']);
+Route::post('/checkout', [TransaksiController::class, 'checkout']);

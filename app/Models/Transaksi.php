@@ -14,7 +14,6 @@ class Transaksi extends Model
         'total_price', // required
         'customer_id', // required
         'staff_id', // required
-        'category',
         'no_antrian', // required
         'status',
     ];
