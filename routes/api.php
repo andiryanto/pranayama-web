@@ -7,6 +7,9 @@ use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\AboutController;
+use App\Http\Controllers\Api\FeedbackController;
+use App\Http\Controllers\Api\PromoController;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -29,3 +32,6 @@ Route::get('/events', [EventController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'payment']);
 Route::post('/payment/notification', [PaymentController::class, 'handlerNotification']);
 Route::get('/abouts', [AboutController::class, 'index']);
+Route::post('/feedback', [FeedbackController::class, 'store']);
+Route::get('/feedback', [FeedbackController::class, 'index']);
+Route::get('/promo', [PromoController::class, 'index']);

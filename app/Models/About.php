@@ -15,5 +15,6 @@ class About extends Model
         'position',
         'photo',
         'instagram',
+        'gender',
     ];
 }

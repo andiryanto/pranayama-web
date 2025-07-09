@@ -10,6 +10,17 @@
             <input type="text" wire:model.defer="name" class="mt-1 block w-full rounded-md border-gray-300 focus:ring focus:ring-indigo-200">
             @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
         </div>
+        
+        <!-- Gender -->
+        <div>
+            <label class="block text-sm font-medium">Jenis Kelamin</label>
+            <select wire:model.defer="gender" class="mt-1 block w-full rounded-md border-gray-300 focus:ring focus:ring-indigo-200">
+                <option value="">Pilih jenis kelamin</option>
+                <option value="male">Laki-laki</option>
+                <option value="female">Perempuan</option>
+            </select>
+            @error('gender') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+        </div>
 
         <!-- Posisi -->
         <div>

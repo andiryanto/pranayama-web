@@ -37,6 +37,11 @@
                                     {{ $crew->name }}
                                 </h5>
 
+                                <!-- Gender -->
+                                <p class="text-sm text-gray-600 dark:text-gray-300">
+                                    {{ $crew->gender === 'male' ? 'Laki-laki' : 'Perempuan' }}
+                                </p>
+
                                 <!-- Jabatan -->
                                 <p class="text-sm text-gray-600 dark:text-gray-300">
                                     {{ $crew->position }}
@@ -52,6 +57,12 @@
                                         </a>
                                     @endif
                                     <!-- Tambah ikon sosial media lain jika ada -->
+                                </div>
+                                <div class="flex justify-end pt-3">
+                                    <a href="{{ route('about.show', $crew->id) }}"
+                                       class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700">
+                                        Detail
+                                    </a>
                                 </div>
                             </div>
                         </div>
