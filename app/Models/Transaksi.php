@@ -16,6 +16,8 @@ class Transaksi extends Model
         'staff_id', // required
         'no_antrian', // required
         'status',
+        'laporan_id',
+        'tanggal',
     ];
     
     public function items()
@@ -27,4 +29,10 @@ public function staff()
     {
         return $this->belongsTo(User::class, 'staff_id');
     }
+
+    public function laporan()
+    {
+        return $this->belongsTo(Laporan::class);
+    }
+
 }

@@ -40,6 +40,10 @@ Route::middleware([
     Route::get('/about/show/{id}', \App\Livewire\About\Show::class)->name('about.show');
     // Route livewire for Feedback
     Route::get('/feedback', \App\Livewire\Feedback\Index::class)->name('feedback.index');
+    // Route livewire for Laporan\
+    Route::get('/laporan', \App\Livewire\Laporan\Index::class)->name('laporan.index');
+    Route::get('/laporan/show/{id}', \App\Livewire\Laporan\Show::class)->name('laporan.show');
+
 });
 
 

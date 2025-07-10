@@ -3,9 +3,12 @@
 namespace App\Livewire\Promo;
 
 use Livewire\Component;
-use Livewire\Attributes\Layout;   // ← tambahkan
+use Livewire\Attributes\Layout; 
+use App\Livewire\Attributes\Title;  
 use App\Models\Promo;
-#[Layout('layouts.app')] // ← gunakan atribut Layout
+
+#[Layout('layouts.app')] 
+#[Title('Promo')] 
 class Index extends Component
 {
     public $promos;

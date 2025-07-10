@@ -34,6 +34,9 @@
                     <x-nav-link href="{{ route('feedback.index') }}" :active="request()->routeIs('feedback.*')">
                         {{ __('Feedback') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('laporan.index') }}" :active="request()->routeIs('laporan.*')">
+                        {{ __('Laporan') }}
+                    </x-nav-link>
                 </div>
             </div>
 
