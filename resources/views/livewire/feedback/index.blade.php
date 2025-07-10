@@ -1,23 +1,23 @@
 <div>
-    <!-- Message -->
+    <!-- Flash Message -->
     @if (session()->has('message'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
             {{ session('message') }}
         </div>
     @endif
 
-    <!-- Judul -->
+    <!-- Header -->
     <div class="py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="px-4 py-5 sm:px-6 flex items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                 <div>
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Feedback List</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Masukkan Pengguna</p>
+                    <h1 class="text-xl font-bold text-gray-900">Feedback List</h1>
+                    <p class="text-sm text-gray-500">Masukkan Pengguna</p>
                 </div>
             </div>
 
             <!-- Tabel Feedback -->
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
+            <div class="bg-white shadow-xl sm:rounded-lg p-6">
                 @if ($feedbacks->isEmpty())
                     <p class="text-gray-500">Belum ada feedback yang masuk.</p>
                 @else

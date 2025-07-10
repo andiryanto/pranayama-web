@@ -1,27 +1,36 @@
 <div>
-    <!-- Messege -->
+    <!-- Message -->
     @if (session()->has('message'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
             <strong class="font-bold">Success!</strong>
             <span class="block sm:inline">{{ session('message') }}</span>
         </div>
     @endif
+
     <!-- Header -->
     <div class="py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="px-4 py-5 sm:px-6 flex items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                 <div>
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Event List</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Event Pranayama Social Area</p>
+                    <h1 class="text-xl font-bold text-gray-900">Event List</h1>
+                    <p class="text-sm text-gray-500">Event Pranayama Social Area</p>
                 </div>
-                <div>
+
+                <div class="flex flex-col sm:flex-row gap-4 mt-4 sm:mt-0">
+                    <input
+                        type="text"
+                        wire:model.live.debounce.300ms="search"
+                        placeholder="Cari event..."
+                        class="form-input w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                    >
                     <a href="{{ route('event.create') }}"
-                       class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         + Tambah Event
                     </a>
-                </div> 
+                </div>
             </div>
 
+            <!-- Event Cards -->
             <div class="bg-white shadow-xl sm:rounded-lg p-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     @foreach ($events as $event)
@@ -62,11 +71,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Card -->
                     @endforeach
                 </div>
             </div>
 
         </div>
     </div>
-</>
+</div>

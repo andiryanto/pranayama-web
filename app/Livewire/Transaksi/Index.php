@@ -4,6 +4,7 @@ namespace App\Livewire\Transaksi;
 
 use Livewire\Component;
 use Livewire\Attributes\Layout;
+use Livewire\WithPagination;
 use App\Livewire\Attributes\Title;
 use App\Models\Transaksi;
 use App\Models\Laporan;
@@ -14,12 +15,28 @@ use Carbon\Carbon;
 #[Title('Transaksi')]
 class Index extends Component
 {
+
+     use WithPagination;
+    public string $search = '';
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         $this->dispatch('setTitle', ['title' => 'Transaksi']);
 
-        // Ambil dan kelompokkan transaksi langsung di render
-        $transaksis = Transaksi::with('items')->latest()->get();
+        $transaksis = Transaksi::with('items')
+            ->when($this->search, function ($query) {
+                $query->where('no_transaction', 'like', '%' . $this->search . '%')
+                      ->orWhereHas('items', function ($q) {
+                          $q->where('nama_produk', 'like', '%' . $this->search . '%');
+                      });
+            })
+            ->latest()
+            ->get();
 
         $groupedTransaksis = $transaksis->groupBy(function ($item) {
             return Carbon::parse($item->created_at)->translatedFormat('l, d F Y');
@@ -45,9 +62,8 @@ class Index extends Component
         }
 
         $totalPendapatan = $transaksis->sum('total_price');
-        $totalProduk = $transaksis->flatMap->items->count();
+        $totalProduk = $transaksis->flatMap->items->sum('quantity');
 
-        // ✅ Simpan laporan dan dapatkan ID-nya
         $laporan = Laporan::create([
             'user_id' => Auth::id(),
             'tanggal' => now(),
@@ -57,7 +73,6 @@ class Index extends Component
             'total_pendapatan' => $totalPendapatan,
         ]);
 
-        // ✅ Update transaksi hari ini agar terkait dengan laporan ini
         foreach ($transaksis as $transaksi) {
             $transaksi->update(['laporan_id' => $laporan->id]);
         }

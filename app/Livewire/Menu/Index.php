@@ -3,41 +3,49 @@
 namespace App\Livewire\Menu;
 
 use Livewire\Component;
-use Livewire\Attributes\Layout;   // ← tambahkan
-// Title
-use App\Livewire\Attributes\Title; // ← tambahkan
+use Livewire\WithPagination;
+use Livewire\Attributes\Layout;
+use App\Livewire\Attributes\Title;
 use App\Models\Menu;
 
-#[Layout('layouts.app')] // ← gunakan atribut Layout
-#[Title('Menu')] // ← gunakan atribut Title
+#[Layout('layouts.app')]
+#[Title('Menu')]
 class Index extends Component
 {
-    public $menus;
-    // Delete Singel Items
-    public $deleteId;
+    use WithPagination;
+
+    public string $search = '';
+    public ?int $deleteId = null;
+
+    // Reset pagination saat pencarian berubah
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function delete($id)
     {
-        // Find the menu by ID and delete it
         $menu = Menu::findOrFail($id);
         $menu->delete();
 
-        // Optionally, you can dispatch a browser event to notify the user
-        $this->dispatch('notify', ['message' => 'Menu deleted successfully!']);
-        // Optionally, you can set a session flash message
-        session()->flash('message', 'Menu deleted successfully!');
-        // Refresh the menus list
-        $this->menus = Menu::all();
+        session()->flash('message', 'Menu berhasil dihapus.');
+        $this->reset('deleteId');
     }
-    public function mount()
-    {
-        // Fetch all menus from the database
-        $this->menus = Menu::all();
-    }
+
     public function render()
     {
-        // send title to view
         $this->dispatch('setTitle', ['title' => 'Menu']);
-        return view('livewire.menu.index');
+
+        $menus = Menu::query()
+            ->when($this->search, function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%')
+                      ->orWhere('category', 'like', '%' . $this->search . '%');
+            })
+            ->latest()
+            ->get(); // ubah sesuai keinginan
+
+        return view('livewire.menu.index', [
+            'menus' => $menus,
+        ]);
     }
 }

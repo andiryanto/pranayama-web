@@ -10,42 +10,55 @@
     <!-- Header -->
     <div class="py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="px-4 py-5 sm:px-6 flex items-center justify-between">
-                <div>
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Daftar Transaksi</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Berikut daftar transaksi terbaru yang dikelompokkan berdasarkan hari.</p>
-                </div>
+
+            <!-- Judul -->
+            <div class="mb-6">
+                <h3 class="text-xl font-bold leading-6 text-gray-900">Daftar Transaksi</h3>
+                <p class="mt-1 text-sm text-gray-500">Berikut daftar transaksi terbaru yang dikelompokkan berdasarkan hari.</p>
             </div>
 
-            <!-- Tombol Tutup Transaksi -->
-            <div class="flex justify-end mb-4">
+            <!-- Search + Tutup Transaksi -->
+            <div class="flex justify-end mb-4 gap-4 flex-col sm:flex-row sm:items-center">
+
+                <!-- Search Box -->
+                <input
+                    type="text"
+                    wire:model.live.debounce.300ms="search"
+                    placeholder="Cari transaksi (nomor, jenis)..."
+                    class="form-input w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                >
+
+                <!-- Tombol Tutup Transaksi -->
                 <button wire:click="tutupTransaksi"
-                    class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow">
+                    class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md shadow-sm transition duration-200">
                     Tutup Transaksi
                 </button>
             </div>
 
             <!-- Transaksi Grouped by Date -->
             <div class="bg-white shadow-xl sm:rounded-lg p-6">
-                @forelse ($groupedTransaksis as $tanggal => $transaksis)
-                    <div class="mb-6">
-                        <h4 class="text-md font-bold text-gray-700 mb-2">{{ $tanggal }}</h4>
+                 @forelse ($groupedTransaksis as $tanggal => $transaksis)
+                    <div class="mb-8">
+                        <!-- Tanggal -->
+                        <h4 class="text-md font-semibold text-gray-700 mb-3">{{ $tanggal }}</h4>
+
+                        <!-- Grid Transaksi -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             @foreach ($transaksis as $transaksi)
-                                <div class="bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
-                                    <div class="p-4">
-                                        <!-- Nomor Transaksi -->
+                                <div class="bg-white border border-gray-200 rounded-lg shadow hover:shadow-md transition duration-200 overflow-hidden">
+                                    <div class="p-4 flex flex-col h-full">
+                                        <!-- No Transaksi -->
                                         <h5 class="text-md font-semibold text-gray-800 mb-1">
                                             No. Transaksi: {{ $transaksi->no_transaction }}
                                         </h5>
 
                                         <!-- Jenis Transaksi -->
-                                        <p class="text-sm text-gray-600 mb-1">
+                                        <p class="text-sm text-gray-600">
                                             Jenis: <span class="font-medium">{{ ucfirst($transaksi->type_transaction) }}</span>
                                         </p>
 
                                         <!-- Total -->
-                                        <p class="text-sm text-gray-600 mb-3">
+                                        <p class="text-sm text-gray-600 mb-4">
                                             Total Harga:
                                             <span class="font-semibold text-green-700">
                                                 Rp {{ number_format($transaksi->total_price, 0, ',', '.') }}
@@ -53,9 +66,9 @@
                                         </p>
 
                                         <!-- Tombol Detail -->
-                                        <div class="flex justify-end">
+                                        <div class="mt-auto pt-2 text-right">
                                             <a href="{{ route('transaksi.show', $transaksi->id) }}"
-                                                class="inline-flex items-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-sm text-white hover:bg-blue-700">
+                                                class="inline-flex items-center px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                                 Detail
                                             </a>
                                         </div>

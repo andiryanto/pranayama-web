@@ -4,26 +4,35 @@ namespace App\Livewire\Event;
 
 use Livewire\Component;
 use Livewire\Attributes\Layout;
-use App\Livewire\Attributes\Title;
+use Livewire\Attributes\Title;
+use Livewire\WithPagination;
 use App\Models\Event;
 
 #[Layout('layouts.app')]
 #[Title('Event')]
 class Index extends Component
 {
-    public $events;
+    use WithPagination;
 
-    public function mount()
+    public $search = '';
+
+    // Reset halaman saat search berubah
+    public function updatingSearch()
     {
-        // Fetch all events from the database
-        $this->events = Event::all();
+        $this->resetPage();
     }
 
     public function render()
     {
-        // Kirim event title ke JS/Blade kalau kamu pakai fitur dynamic title
+        $events = Event::where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('category', 'like', '%' . $this->search . '%')
+                    ->latest()
+                    ->paginate(8);
+
         $this->dispatch('setTitle', ['title' => 'Event']);
 
-        return view('livewire.event.index');
+        return view('livewire.event.index', [
+            'events' => $events,
+        ]);
     }
 }

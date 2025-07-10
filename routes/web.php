@@ -47,6 +47,8 @@ Route::middleware([
     Route::get('/users', \App\Livewire\ManageUser\Index::class)->name('users.index');
     Route::get('/users/create', \App\Livewire\ManageUser\Create::class)->name('users.create');
     Route::get('/users/{user}/edit', \App\Livewire\ManageUser\Edit::class)->name('user.edit');
+    Route::get('/users/{id}/show', \App\Livewire\ManageUser\Show::class)->name('users.show');
+
 
 });
 

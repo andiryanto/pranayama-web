@@ -3,9 +3,9 @@
         <h2 class="text-xl font-semibold mb-6">Edit Promo</h2>
 
         <form wire:submit.prevent="update" class="space-y-6" enctype="multipart/form-data">
-            {{-- Nama Promo --}}
+            {{-- Nama --}}
             <div>
-                <label class="block text-sm font-medium">Nama Promo</label>
+                <label class="block text-sm font-medium">Nama</label>
                 <input type="text"
                        wire:model.defer="name"
                        class="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500">

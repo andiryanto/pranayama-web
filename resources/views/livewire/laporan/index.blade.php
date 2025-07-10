@@ -10,10 +10,20 @@
     <!-- Header -->
     <div class="py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="px-4 py-5 sm:px-6 flex items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                 <div>
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Laporan Harian</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Berikut adalah daftar laporan transaksi harian.</p>
+                    <h1 class="text-xl font-bold text-gray-900">Laporan Harian</h1>
+                    <p class="text-sm text-gray-500">Berikut adalah daftar laporan transaksi harian.</p>
+                </div>
+
+                <!-- Search -->
+                <div class="mt-4 sm:mt-0">
+                    <input
+                        type="text"
+                        wire:model.live.debounce.300ms="search"
+                        placeholder="Cari berdasarkan tanggal atau staff..."
+                        class="form-input w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                    >
                 </div>
             </div>
 
@@ -51,14 +61,14 @@
                                     </span>
                                 </p>
 
-                                <!-- Tombol Cetak -->
-                            <div class="flex justify-end mt-3">
-                                <a href="{{ route('laporan.show', $report->id) }}"
-                                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
-                                    Detail
-                                </a>
+                                <!-- Tombol Detail -->
+                                <div class="flex justify-end mt-3">
+                                    <a href="{{ route('laporan.show', $report->id) }}"
+                                       class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
+                                        Detail
+                                    </a>
+                                </div>
                             </div>
-                                                        </div>
                         </div>
                     @empty
                         <div class="col-span-3 text-center text-gray-500">

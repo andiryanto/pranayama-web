@@ -15,6 +15,9 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                     <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                        {{ __('User') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('event.index') }}" :active="request()->routeIs('event.*')">
                         {{ __('Event') }}
                     </x-nav-link>
@@ -36,9 +39,6 @@
                     </x-nav-link>
                     <x-nav-link href="{{ route('laporan.index') }}" :active="request()->routeIs('laporan.*')">
                         {{ __('Laporan') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
-                        {{ __('Kelola User') }}
                     </x-nav-link>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 @if (session('success'))
-    <div class="mb-4 text-green-600">
+    <div class="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
         {{ session('success') }}
     </div>
 @endif
@@ -62,6 +62,7 @@
                 </button>
             </div>
 
+            <!-- Form Edit Status -->
             <form wire:submit.prevent="updateStatus" class="flex items-center gap-3 mt-4">
                 <label for="status" class="text-sm font-medium">Edit Status:</label>
                 <select wire:model="status" id="status" class="border rounded px-3 py-1 text-sm">
@@ -69,8 +70,18 @@
                     <option value="process">Process</option>
                     <option value="finish">Finish</option>
                 </select>
-                <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded text-sm">Simpan</button>
-            </form>
+                <!-- Tombol Simpan -->
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4 py-1 rounded">
+                    Simpan
+                </button>
+
+                <!-- Tombol Kembali -->
+                <a href="{{ route('transaksi.index') }}"
+                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium text-sm px-4 py-1 rounded">
+                Kembali
+                </a>
+                 </form>
+            </div>
         </div>
     </div>
 </div>
