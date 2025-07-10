@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\Layout;   // ← tambahkan
 use App\Models\Menu;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 #[Layout('layouts.app')] // ← gunakan atribut Layout
 // withfileuploads
 class Edit extends Component
@@ -35,8 +36,8 @@ class Edit extends Component
         // jika user mengganti gambar
         if ($this->newImage) {
             // hapus file lama (opsional)
-            if ($menu->image && \Storage::disk('public')->exists($menu->image)) {
-                \Storage::disk('public')->delete($menu->image);
+            if ($menu->image && Storage::disk('public')->exists($menu->image)) {
+                Storage::disk('public')->delete($menu->image);
             }
             // simpan file baru
             $path        = $this->newImage->store('menus', 'public');

@@ -40,7 +40,7 @@
                 </div>
 
                 <!-- Role (hidden) -->
-                <input type="hidden" name="role" value="user" />
+                <input type="hidden" name="role" value="admin" />
 
                 <!-- Password -->
                 <div class="mt-4">

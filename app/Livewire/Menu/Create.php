@@ -5,19 +5,20 @@ namespace App\Livewire\Menu;
 use Livewire\Component;
 use Livewire\Attributes\Layout;   // ← tambahkan
 // Title
-use App\Livewire\Attributes\Title; // ← tambahkan
+use App\Livewire\Attributes\Title;
+
 use Livewire\WithFileUploads;
 use App\Models\Menu;
 
 
 #[Layout('layouts.app')] // ← gunakan atribut Layout
-#[Title('Add Menu')] // ← gunakan atribut Title
+#[Title('Add Menu')]
 class Create extends Component
 {
     use WithFileUploads;
 
     public $name, $description, $price, $category, $image, $is_recommended = false;
-    
+
     protected $rules = [
         'name' => 'required|string|max:255',
         'description' => 'nullable|string',

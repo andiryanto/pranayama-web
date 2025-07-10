@@ -37,6 +37,9 @@
                     <x-nav-link href="{{ route('laporan.index') }}" :active="request()->routeIs('laporan.*')">
                         {{ __('Laporan') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                        {{ __('Kelola User') }}
+                    </x-nav-link>
                 </div>
             </div>
 

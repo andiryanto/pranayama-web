@@ -43,6 +43,10 @@ Route::middleware([
     // Route livewire for Laporan\
     Route::get('/laporan', \App\Livewire\Laporan\Index::class)->name('laporan.index');
     Route::get('/laporan/show/{id}', \App\Livewire\Laporan\Show::class)->name('laporan.show');
+    // Manage user
+    Route::get('/users', \App\Livewire\ManageUser\Index::class)->name('users.index');
+    Route::get('/users/create', \App\Livewire\ManageUser\Create::class)->name('users.create');
+    Route::get('/users/{user}/edit', \App\Livewire\ManageUser\Edit::class)->name('user.edit');
 
 });
 
