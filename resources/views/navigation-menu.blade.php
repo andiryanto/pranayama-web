@@ -15,11 +15,27 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('event.index') }}" :active="request()->routeIs('event.index')">
+                    <x-nav-link href="{{ route('event.index') }}" :active="request()->routeIs('event.*')">
                         {{ __('Event') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('menu.index') }}" :active="request()->routeIs('menu.index')">
+                    <x-nav-link href="{{ route('menu.index') }}" :active="request()->routeIs('menu.*')">
                         {{ __('Menu') }}
+                    </x-nav-link>
+                    <!-- Promo -->
+                    <x-nav-link href="{{ route('promo.index') }}" :active="request()->routeIs('promo.*')">
+                        {{ __('Promo') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('transaksi.index') }}" :active="request()->routeIs('transaksi.*')">
+                        {{ __('Transaksi') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('about.index') }}" :active="request()->routeIs('about.*')">
+                        {{ __('About') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('feedback.index') }}" :active="request()->routeIs('feedback.*')">
+                        {{ __('Feedback') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('laporan.index') }}" :active="request()->routeIs('laporan.*')">
+                        {{ __('Laporan') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -122,8 +138,10 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">{{ __('Dashboard') }}</x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('menu.index') }}" :active="request()->routeIs('menu.index')">{{ __('Menu') }}</x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('event.index') }}" :active="request()->routeIs('event.index')">{{ __('Event') }}</x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('menu.index') }}" :active="request()->routeIs('menu.*')">{{ __('Menu') }}</x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('event.index') }}" :active="request()->routeIs('event.*')">{{ __('Event') }}</x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('promo.index') }}" :active="request()->routeIs('promo.*')">{{ __('Promo') }}</x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('transaksi.index') }}" :active="request()->routeIs('transaksi.*')">{{ __('Transaksi') }}</x-responsive-nav-link>
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-200">

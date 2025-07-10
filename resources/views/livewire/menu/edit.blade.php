@@ -38,10 +38,11 @@
                 <select wire:model.defer="category"
                         class="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500">
                     <option value="" hidden>Pilih kategori</option>
-                    <option value="coffee">Coffee</option>
-                    <option value="drink">Drink</option>
-                    <option value="snack">Snack</option>
-                    <option value="ricebowl">Ricebowl</option>
+                    <option value="Coffee">Coffee</option>
+                    <option value="Non Coffee">Non Coffee</option>
+                    <option value="Ricebowl">Ricebowl</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Manual Brew">Manual Brew</option>
                 </select>
                 @error('category') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
             </div>

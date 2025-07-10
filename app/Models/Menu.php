@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     //
-    protected $table = 'transactions';
+    protected $table = 'menu';
     protected $fillable = [
         'name',
         'description',
         'price',
         'category',
         'image',
+        'is_recommended'
     ];
 }

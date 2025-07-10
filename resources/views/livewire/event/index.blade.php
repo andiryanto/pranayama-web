@@ -1,11 +1,18 @@
 <div>
+    <!-- Messege -->
+    @if (session()->has('message'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Success!</strong>
+            <span class="block sm:inline">{{ session('message') }}</span>
+        </div>
+    @endif
     <!-- Header -->
     <div class="py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="px-4 py-5 sm:px-6 flex items-center justify-between">
                 <div>
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Event List</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Here you can find all upcoming events.</p>
+                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Event Pranayama Social Area</p>
                 </div>
                 <div>
                     <a href="{{ route('event.create') }}"
@@ -48,7 +55,7 @@
                                     <span class="text-sm font-semibold text-gray-900 dark:text-white">
                                         {{ $event->location }}
                                     </span>
-                                    <a href="#"
+                                    <a href="{{ route('event.show', $event->id) }}"
                                        class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700">
                                         Detail
                                     </a>
@@ -62,4 +69,4 @@
 
         </div>
     </div>
-</div>
+</>
