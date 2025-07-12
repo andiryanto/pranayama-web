@@ -1,3 +1,9 @@
+<div>
+@if (session()->has('message'))
+    <div class="bg-green-100 text-green-800 p-2 rounded mb-4">
+        {{ session('message') }}
+    </div>
+@endif
 <div class="py-6">
     <div class="max-w-lg ml-6">
         <div class="bg-white shadow-lg rounded-lg p-6 flex items-center gap-8">
@@ -53,7 +59,7 @@
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('delete', id);
+                    @this.call('delete', id);
                 }
             });
         }

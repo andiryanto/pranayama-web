@@ -2,20 +2,48 @@
 
 namespace App\Livewire\ManageUser;
 
-use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
+use App\Models\User;
 
 #[Layout('layouts.app')]
 class Show extends Component
 {
-    public User $user;
+    // Properti user aktif
+    public $user;
+    public $name, $email, $role, $phone;
+     protected $listeners = ['delete'];
 
-    public function mount($id)
+
+    /** ------------------------------
+     *  HAPUS USER
+     *  -----------------------------*/
+    public function delete($id)
     {
-        $this->user = User::findOrFail($id);
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        $this->dispatch('notify', ['message' => 'User deleted successfully!']);
+        session()->flash('message', 'User deleted successfully!');
+        return redirect()->route('users.index');
     }
 
+    /** ------------------------------
+     *  MOUNT: ambil data awal
+     *  -----------------------------*/
+    public function mount($id)
+    {
+        $user        = User::findOrFail($id);
+        $this->user  = $user;
+        $this->name  = $user->name;
+        $this->email = $user->email;
+        $this->role  = $user->role;
+        $this->phone = $user->phone;
+    }
+
+    /** ------------------------------
+     *  VIEW RENDER
+     *  -----------------------------*/
     public function render()
     {
         return view('livewire.manage-user.show');

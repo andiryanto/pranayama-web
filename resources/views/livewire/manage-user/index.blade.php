@@ -1,4 +1,10 @@
 <div>
+@if (session()->has('message'))
+    <div class="mb-4 p-3 bg-green-100 text-green-800 rounded shadow">
+        {{ session('message') }}
+    </div>
+@endif
+<div>
     {{-- Because she competes with no one, no one can compete with her. --}}
     <div class="px-8">
         <div class="container mx-auto px-4 py-8">
@@ -66,4 +72,4 @@
         <p class="text-gray-500 text-lg">Tidak ada user yang ditemukan.</p>
     </div>
 @endforelse
-
+</div>
