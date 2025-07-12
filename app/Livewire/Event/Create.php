@@ -9,7 +9,6 @@ use App\Livewire\Attributes\Title;
 use App\Models\Event;
 
 #[Layout('layouts.app')]
-#[Title('Add Event')]
 class Create extends Component
 {
     use WithFileUploads;
@@ -27,7 +26,11 @@ class Create extends Component
         'category'    => 'nullable|string|max:255',
         'image'       => 'nullable|image|max:2048',  // max 2MB
     ];
-
+    public function updatedImage()
+    {
+        // We only validate the 'image' property here for instant feedback.
+        $this->validateOnly('image');
+    }
     public function save()
     {
         $this->validate();
@@ -46,8 +49,6 @@ class Create extends Component
 
         session()->flash('success', 'Event berhasil ditambahkan.');
         return redirect()->route('event.index');
-
-        $this->reset(['name', 'date', 'description','category', 'image']);
     }
 
     public function render()

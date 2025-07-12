@@ -40,11 +40,6 @@
                 file:bg-indigo-50 file:text-indigo-700
                 hover:file:bg-indigo-100">
             @error('promo_image') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-
-            @if ($promo_image)
-                <p class="text-xs text-gray-500 mt-2">Preview:</p>
-                <img src="{{ $promo_image->temporaryUrl() }}" class="w-32 h-32 rounded border object-cover mt-1">
-            @endif
         </div>
 
         <!-- Tombol Simpan -->
