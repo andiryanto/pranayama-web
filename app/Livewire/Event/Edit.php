@@ -55,6 +55,8 @@ class Edit extends Component
                 \Storage::disk('public')->delete($event->image);
             }
             $path        = $this->newImage->store('events', 'public');
+
+               dd($path); 
             $event->image = $path;
         }
 
