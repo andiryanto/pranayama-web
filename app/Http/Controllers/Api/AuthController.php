@@ -50,9 +50,10 @@ class AuthController extends Controller
         $user = User::where('phone', $request->phone)->first();
 
         if (! $user || ! Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'phone' => ['The provided credentials are incorrect.'],
-            ]);
+            return response()->json([
+                'status' => false,
+                'message' => 'Nomor HP atau password salah'
+            ], 401);
         }
 
         // Hapus token lama (opsional)

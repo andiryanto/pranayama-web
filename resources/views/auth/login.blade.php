@@ -7,7 +7,14 @@
             </div>
 
             <!-- Validation Errors -->
-            <x-validation-errors class="mb-4" />
+             @if ($errors->any())
+                <div class="mb-4 text-sm text-red-600">
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                </div>
+            @endif
+
 
             @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-green-600">
