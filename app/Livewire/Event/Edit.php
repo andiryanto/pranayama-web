@@ -55,14 +55,12 @@ class Edit extends Component
                 \Storage::disk('public')->delete($event->image);
             }
             $path        = $this->newImage->store('events', 'public');
-
-               dd($path); 
             $event->image = $path;
         }
 
         $event->save();
 
-        session()->flash('success', 'Event berhasil diperbarui!');
+        session()->flash('message', 'Event berhasil diperbarui!');
         return redirect()->route('event.index');
     }
 

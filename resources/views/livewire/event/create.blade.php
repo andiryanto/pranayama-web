@@ -1,4 +1,11 @@
 <div>
+     <!-- Message -->
+    @if (session()->has('message'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Success!</strong>
+            <span class="block sm:inline">{{ session('message') }}</span>
+        </div>
+    @endif
     <div class="py-12">
         <div class="max-w-2xl mx-auto p-6 bg-white rounded shadow">
             <h2 class="text-xl font-bold mb-4">Tambah Event</h2>

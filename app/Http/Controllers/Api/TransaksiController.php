@@ -27,7 +27,14 @@ class TransaksiController extends Controller
     // === ✅ API Checkout untuk Midtrans ===
     public function checkout(Request $request, MidtransService $midtrans)
     {
-    
+
+
+         if (!auth()->check()) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Unauthenticated: Token tidak valid atau tidak dikirim',
+        ], 401);
+    }
         $orderId = 'ORDER-' . strtoupper(Str::random(10));
 
         $params = [
@@ -62,8 +69,8 @@ class TransaksiController extends Controller
                 'no_transaction'     => $orderId,
                 'total_price'        => $request->gross_amount,
                 'type_transaction'   => $request->type_transaction ?? 'takeaway',
-                'customer_id'        => $request->customer_id ?? 1,
-                'staff_id'           => $request->staff_id ?? 1,
+                'customer_id'        => auth()->id(),
+                'staff_id'           => $request->staff_id ?? 12,
                 'no_antrian'         => $lastQueueToday + 1,
                 'tanggal'            => $today,
             ]);

@@ -23,7 +23,7 @@
         <x-banner />
 
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 overflow-visible">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -42,7 +42,6 @@
         </div>
 
         @stack('modals')
-
         @livewireScripts
     </body>
 </html>

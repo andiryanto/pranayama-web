@@ -12,7 +12,7 @@ class Show extends Component
     public $name, $description, $price, $category, $image;
     // delete
     public $deleteId;
-    
+    protected $listeners = ['delete'];
     public function delete($id)
     {
         // Find the menu by ID and delete it

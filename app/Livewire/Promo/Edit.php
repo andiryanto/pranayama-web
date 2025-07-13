@@ -67,7 +67,7 @@ class Edit extends Component
 
         $promo->save();
 
-        session()->flash('success', 'Promo berhasil diperbarui!');
+        session()->flash('message', 'Promo berhasil diperbarui!');
         return redirect()->route('promo.index');
     }
 

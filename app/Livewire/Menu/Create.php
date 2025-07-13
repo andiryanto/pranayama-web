@@ -45,7 +45,7 @@ class Create extends Component
             'is_recommended' => $this->is_recommended ? 1 : 0,
         ]);
 
-        session()->flash('success', 'Menu berhasil ditambahkan.');
+        session()->flash('message', 'Menu berhasil ditambahkan.');
         // Redirect to the menu index page or wherever you want
         return redirect()->route('menu.index');
         // Reset form

@@ -17,6 +17,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::middleware('auth:sanctum')->post('/checkout', [TransaksiController::class, 'checkout']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login',    [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
@@ -37,6 +38,7 @@ Route::get('/abouts', [AboutController::class, 'index']);
 Route::post('/feedback', [FeedbackController::class, 'store']);
 Route::get('/feedback', [FeedbackController::class, 'index']);
 Route::get('/promo', [PromoController::class, 'index']);
-Route::post('/checkout', [TransaksiController::class, 'checkout']);
+// Route::post('/checkout', [TransaksiController::class, 'checkout']);
 Route::get('/transactions/history/{customer_id}', [TransaksiController::class, 'history']);
 Route::get('/antrian', [QueueController::class, 'current']);
+

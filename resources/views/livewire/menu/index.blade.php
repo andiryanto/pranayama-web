@@ -34,8 +34,9 @@
             <div class="bg-white shadow-xl sm:rounded-lg p-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     @foreach ($menus as $menu)
+            
                         <!-- Menu Card -->
-                        <div class="bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow overflow-hidden flex flex-col h-full">
                             <img class="w-full h-48 object-cover" src="{{ asset('storage/' . $menu->image) }}" alt="{{ $menu->name }}" />
 
                             <div class="p-4 flex flex-col h-full">
@@ -56,10 +57,10 @@
                                 </div>
 
                                 <!-- Action Buttons -->
-                                <div class="mt-auto pt-2">
+                                <div class="mt-auto pt-2 flex justify-end">
                                     <a href="{{ route('menu.show', $menu->id) }}"
                                         class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2">
-                                        Detail
+                                        Detail 
                                     </a>
                                 </div>
                             </div>

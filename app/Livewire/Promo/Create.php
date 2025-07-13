@@ -40,7 +40,7 @@ class Create extends Component
             'promo_image'   => $imagePath,
         ]);
 
-        session()->flash('success', 'Promo berhasil ditambahkan!');
+        session()->flash('message', 'Promo berhasil ditambahkan!');
         return redirect()->route('promo.index');
     }
     public function render()

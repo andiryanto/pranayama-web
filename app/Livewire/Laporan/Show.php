@@ -14,14 +14,14 @@ class Show extends Component
 
     public function mount($id)
     {
-        $this->laporan = Laporan::with(['user', 'transaksis.items.product'])->findOrFail($id);
+        $this->laporan = Laporan::with(['user', 'transaksis.items'])->findOrFail($id);
 
         // Ambil semua item dari semua transaksi yang terkait dengan laporan ini
         $items = $this->laporan->transaksis->flatMap->items;
 
         // Kelompokkan berdasarkan nama produk dan hitung total quantity-nya
-        $this->produkTerjual = $items->groupBy('product_name')->map(function ($group) {
-            return $group->sum('quantity');
+        $this->produkTerjual = $items->groupBy('nama_produk')->map(function ($group) {
+            return $group->sum('qty');
         });
     }
 

@@ -18,19 +18,18 @@
             </div>
 
             <!-- Search + Tutup Transaksi -->
-            <div class="flex justify-end mb-4 gap-4 flex-col sm:flex-row sm:items-center">
-
+            <div class="flex justify-end items-center mb-4">
                 <!-- Search Box -->
                 <input
                     type="text"
                     wire:model.live.debounce.300ms="search"
-                    placeholder="Cari transaksi (nomor, jenis)..."
-                    class="form-input w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                    placeholder="Cari transaksi..."
+                    class="form-input w-44 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 >
 
                 <!-- Tombol Tutup Transaksi -->
                 <button wire:click="tutupTransaksi"
-                    class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md shadow-sm transition duration-200">
+                    class="ml-3 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md shadow-sm transition duration-200 whitespace-nowrap">
                     Tutup Transaksi
                 </button>
             </div>

@@ -46,7 +46,7 @@ class Edit extends Component
 
         $menu->save();
 
-        session()->flash('success', 'Menu berhasil diperbarui!');
+        session()->flash('message', 'Menu berhasil diperbarui!');
         return redirect()->route('menu.index');
     }
     public function mount($id)

@@ -47,7 +47,7 @@ class Create extends Component
             'image'       => $imagePath,
         ]);
 
-        session()->flash('success', 'Event berhasil ditambahkan.');
+        session()->flash('message', 'Event berhasil ditambahkan.');
         return redirect()->route('event.index');
     }
 
