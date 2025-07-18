@@ -15,7 +15,7 @@
                 <div>
                     <div class="font-bold text-lg">{{ Auth::user()->name }}</div>
                     <div class="text-gray-600 text-sm">{{ Auth::user()->email }}</div>
-                    <div class="text-gray-400 text-sm italic">Professional Barista (Admin)</div>
+                    <div class="text-gray-400 text-sm italic">{{ Auth::user()->role }}</div>
                 </div>
             </div>
         </div>

@@ -22,18 +22,23 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'string', 'max:15'], // Nomer telepon wajib diisi
-            'role' => ['required', 'string', 'in:staff,admin'], // Role pengguna harus salah satu dari staff atau admin
+            'phone' => ['required', 'string', 'max:15'],
+            'role' => ['required', 'string', 'in:staff,admin'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
-            'phone' => $input['phone'], // Simpan nomer telepon
-            'role' => $input['role'], // Simpan role pengguna
+            'phone' => $input['phone'],
+            'role' => $input['role'],
             'password' => Hash::make($input['password']),
         ]);
+
+        // Redirect to login page after account creation
+        redirect()->route('login')->send();
+
+        return $user;
     }
 }
