@@ -21,6 +21,9 @@
                     <x-nav-link href="{{ route('laporan.index') }}" :active="request()->routeIs('laporan.*')">
                         {{ __('Laporan') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('feedback.index') }}" :active="request()->routeIs('feedback.*')">
+                        {{ __('Feedback') }}
+                    </x-nav-link>
                     {{-- if role auth == admin --}}
                     @if (Auth::user()->role === 'admin')
                     <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">

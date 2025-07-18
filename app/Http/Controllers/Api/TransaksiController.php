@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Transaksi;
 use App\Models\TransaksiItem;
+use App\Models\StaffLogin;
 use App\Services\MidtransService;
 use Carbon\Carbon;
 
@@ -63,14 +64,14 @@ class TransaksiController extends Controller
 
             $lastQueueToday = Transaksi::whereDate('tanggal', $today)->max('no_antrian') ?? 0;
 
-            
+            $staff_last_login = StaffLogin::orderBy('last_login_at', 'desc')->first();
             // Simpan transaksi
             $transaksi = Transaksi::create([
                 'no_transaction'     => $orderId,
                 'total_price'        => $request->gross_amount,
                 'type_transaction'   => $request->type_transaction ?? 'takeaway',
                 'customer_id'        => auth()->id(),
-                'staff_id'           => $request->staff_id ?? 12,
+                'staff_id'           => $staff_last_login?->staff_id ?? null,
                 'no_antrian'         => $lastQueueToday + 1,
                 'tanggal'            => $today,
             ]);

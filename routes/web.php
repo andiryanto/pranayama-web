@@ -10,6 +10,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+    'check.role:admin,staff'
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -48,6 +49,8 @@ Route::middleware([
     Route::get('/users/create', \App\Livewire\ManageUser\Create::class)->name('users.create');
     Route::get('/users/{user}/edit', \App\Livewire\ManageUser\Edit::class)->name('user.edit');
     Route::get('/users/{id}/show', \App\Livewire\ManageUser\Show::class)->name('users.show');
-
-
+    
+});
+Route::middleware(['auth', 'check.role:admin,staff'])->get('/test-role', function () {
+    return 'Access Granted';
 });

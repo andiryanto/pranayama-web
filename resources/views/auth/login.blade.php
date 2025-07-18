@@ -15,6 +15,11 @@
                 </div>
             @endif
 
+            @if($errors->has('akses'))
+                <div class="alert alert-danger">
+                    {{ $errors->first('akses') }}
+                </div>
+            @endif
 
             @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-green-600">
