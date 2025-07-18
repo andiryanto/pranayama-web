@@ -39,8 +39,14 @@
                              name="phone" :value="old('phone')" required autocomplete="tel" />
                 </div>
 
-                <!-- Role (hidden) -->
-                <input type="hidden" name="role" value="admin" />
+                {{-- Select option staff or admin --}}
+                <div class="mt-4">
+                    <x-label for="role" value="{{ __('Role') }}" />
+                    <select id="role" name="role" class="block mt-1 w-full">
+                        <option value="staff">{{ __('Staff') }}</option>
+                        <option value="admin">{{ __('Admin') }}</option>
+                    </select>
+                </div>
 
                 <!-- Password -->
                 <div class="mt-4">

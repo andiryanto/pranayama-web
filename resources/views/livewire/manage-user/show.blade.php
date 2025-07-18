@@ -17,7 +17,7 @@
                 <h2 class="text-2xl font-bold mb-1">{{ $user->name }}</h2>
                 <p class="text-gray-600 mb-1">{{ $user->email }}</p>
                 <span class="inline-block px-3 py-1 bg-gray-200 text-sm rounded mb-4">
-                    {{ $user->role === 'admin' ? 'Admin' : 'User' }}
+                    {{ $user->role === 'admin' ? 'Admin' : ($user->role === 'staff' ? 'Staff' : 'User') }}
                 </span>
 
                 <!-- Tombol Aksi -->

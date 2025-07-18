@@ -29,7 +29,7 @@ class Create extends Component
             'email' => 'required|email|max:255|unique:users,email', // Pastikan email unik
             'phone' => 'nullable|string|max:15',
             'password' => 'required|string|min:8',
-            'role' => ['required', Rule::in(['admin', 'user'])],
+            'role' => ['required', Rule::in(['admin', 'user','staff'])], // Validasi role harus salah satu dari yang ditentukan
         ]);
 
         // Hash password sebelum disimpan ke database untuk keamanan

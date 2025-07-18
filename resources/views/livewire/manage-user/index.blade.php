@@ -52,13 +52,13 @@
                     <h3 class="text-xl font-semibold text-gray-900">{{ $user->name }}</h3>
                     <p class="text-gray-500 text-sm">{{ $user->email }}</p>
                     <p class="text-gray-500 text-sm mt-1">
-                        {{ $user->role === 'admin' ? 'Admin' : 'User' }}
+                        {{ $user->role === 'admin' ? 'Admin' : ($user->role === 'staff' ? 'Staff' : 'User') }}
                     </p>
                 </div>
             </div>
         </div>
 
-        
+
         <!-- Tombol Detail -->
         <div class="bg-gray-50 px-6 py-3 flex justify-end items-center">
             <a href="{{ route('users.show', $user->id) }}"

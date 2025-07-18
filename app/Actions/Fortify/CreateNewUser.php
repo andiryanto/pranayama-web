@@ -23,7 +23,7 @@ class CreateNewUser implements CreatesNewUsers
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'max:15'], // Nomer telepon wajib diisi
-            'role' => ['required', 'string', 'in:user,admin,superadmin'], // Role pengguna harus salah satu dari user, admin, atau superadmin
+            'role' => ['required', 'string', 'in:staff,admin'], // Role pengguna harus salah satu dari staff atau admin
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();

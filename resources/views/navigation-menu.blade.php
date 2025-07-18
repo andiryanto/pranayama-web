@@ -15,7 +15,15 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                     <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                    <x-nav-link href="{{ route('transaksi.index') }}" :active="request()->routeIs('transaksi.*')">
+                        {{ __('Transaksi') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('laporan.index') }}" :active="request()->routeIs('laporan.*')">
+                        {{ __('Laporan') }}
+                    </x-nav-link>
+                    {{-- if role auth == admin --}}
+                    @if (Auth::user()->role === 'admin')
+                    <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
                         {{ __('User') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('event.index') }}" :active="request()->routeIs('event.*')">
@@ -28,9 +36,6 @@
                     <x-nav-link href="{{ route('promo.index') }}" :active="request()->routeIs('promo.*')">
                         {{ __('Promo') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('transaksi.index') }}" :active="request()->routeIs('transaksi.*')">
-                        {{ __('Transaksi') }}
-                    </x-nav-link>
                     <x-nav-link href="{{ route('about.index') }}" :active="request()->routeIs('about.*')">
                         {{ __('About') }}
                     </x-nav-link>
@@ -40,6 +45,7 @@
                     <x-nav-link href="{{ route('laporan.index') }}" :active="request()->routeIs('laporan.*')">
                         {{ __('Laporan') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 

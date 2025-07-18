@@ -48,6 +48,7 @@
                         <select id="role" wire:model="role" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 @error('role') border-red-500 @enderror">
                             <option value="user">User</option>
                             <option value="admin">Admin</option>
+                            <option value="staff">Staff</option>
                         </select>
                         @error('role') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
