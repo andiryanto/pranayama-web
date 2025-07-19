@@ -20,9 +20,13 @@
             <!-- Search + Tutup Transaksi -->
             <div class="flex justify-end items-center mb-4">
                 <!-- Search Box -->
-                 <button wire:click="resetAntrian" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow">
+               <!-- <button
+                    onclick="confirm('Yakin reset antrian hari ini?') || event.stopImmediatePropagation()"
+                    wire:click="resetAntrian"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow"
+                >
                     Reset Antrian
-                </button>
+                </button> -->
                 <input
                     type="text"
                     wire:model.live.debounce.300ms="search"
