@@ -30,6 +30,8 @@ class Show extends Component
         $this->transaksi->save();
 
         session()->flash('success', 'Status berhasil diperbarui.');
+
+        return redirect()->route('transaksi.index');
     }
 
     public function render()
