@@ -61,6 +61,7 @@ class Index extends Component
             return;
         }
 
+        
         $totalPendapatan = $transaksis->sum('total_price');
         $totalProduk = $transaksis->flatMap->items->sum('quantity');
 
@@ -79,4 +80,16 @@ class Index extends Component
 
         session()->flash('message', 'Transaksi hari ini telah ditutup dan dimasukkan ke laporan.');
     }
+
+    public function resetAntrian()
+    {
+        $today = Carbon::today();
+
+        Transaksi::whereDate('created_at', $today)
+            ->where('status', 'pending') // atau status lain yang mau dihapus
+            ->delete();
+
+        session()->flash('message', 'Antrian hari ini telah direset.');
+    }
+
 }

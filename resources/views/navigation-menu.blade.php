@@ -42,9 +42,6 @@
                     <x-nav-link href="{{ route('about.index') }}" :active="request()->routeIs('about.*')">
                         {{ __('About') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('feedback.index') }}" :active="request()->routeIs('feedback.*')">
-                        {{ __('Feedback') }}
-                    </x-nav-link>
                     @endif
                 </div>
             </div>

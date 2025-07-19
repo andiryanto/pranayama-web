@@ -20,11 +20,14 @@
             <!-- Search + Tutup Transaksi -->
             <div class="flex justify-end items-center mb-4">
                 <!-- Search Box -->
+                 <button wire:click="resetAntrian" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow">
+                    Reset Antrian
+                </button>
                 <input
                     type="text"
                     wire:model.live.debounce.300ms="search"
                     placeholder="Cari transaksi..."
-                    class="form-input w-44 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                    class="ml-3 form-input w-44 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 >
 
                 <!-- Tombol Tutup Transaksi -->

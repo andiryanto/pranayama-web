@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\TransaksiController;
 use App\Http\Controllers\Api\QueueController;
 
 
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
@@ -41,4 +42,5 @@ Route::get('/promo', [PromoController::class, 'index']);
 // Route::post('/checkout', [TransaksiController::class, 'checkout']);
 Route::get('/transactions/history/{customer_id}', [TransaksiController::class, 'history']);
 Route::get('/antrian', [QueueController::class, 'current']);
+
 
